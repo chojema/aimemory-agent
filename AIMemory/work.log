@@ -1,0 +1,25 @@
+# AIMemory work.log
+#
+# Append-only event log. Newest events go at the bottom.
+#
+# Event header:
+# ### YYYY-MM-DD HH:MM | <model-id> | <EVENT>
+#
+# Core events:
+# PROJECT_BOOTSTRAPPED, RE_ENGAGED, PROMPT, WORK_START, WORK_END,
+# FILES_CREATED, FILES_MODIFIED, FILES_MOVED, FILES_DELETED,
+# DECISION, NOTE, HANDOFF, HANDOFF_RECEIVED, HANDOFF_CLOSED,
+# REVIEW_RESPONSE, CHECKPOINT, CONTEXT_PRESSURE, HANDOFF_RECOMMENDED,
+# BLOCKER, CORRECTION
+#
+# Read the recent tail before every new task.
+# Do not edit old entries in place. Append corrections as new events.
+# See AIMemory/PROTOCOL.md for the full protocol.
+# ============================================================
+### 2026-04-28 16:39 | openai-unknown-2026-04 | PROJECT_BOOTSTRAPPED
+Vendor: OpenAI
+Harness: Codex CLI
+Capabilities: filesystem-read, filesystem-write, shell-exec, web-fetch, web-search, code-sandbox, image-input, image-output, subagent-spawn
+Strengths: Pragmatic code changes, repo inspection, and continuity-focused project memory maintenance.
+Context-window: unknown
+Note: Exact model name is uncertain in this harness; using openai-unknown-2026-04.
