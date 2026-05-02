@@ -13,6 +13,7 @@ Unknown.
 ## Current state
 
 AIMemory has been initialized. Project details still need to be summarized.
+README.md now documents OpenCode support through `opencode.md`.
 
 ## Locked-in decisions
 

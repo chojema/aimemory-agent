@@ -1,9 +1,9 @@
 <!-- AIMEMORY-INSTRUCTIONS:START -->
-# AIMemory Instructions for Gemini CLI
+# AIMemory Instructions for OpenCode
 
 This project uses `AIMemory/` as shared working memory for Codex, Claude Code, Gemini CLI, OpenCode, and other coding agents.
 
-Before starting:
+Before starting any task:
 1. Read `AIMemory/PROTOCOL.md`.
 2. Read `AIMemory/PROJECT_OVERVIEW.md`.
 3. Read the recent entries in `AIMemory/work.log`.

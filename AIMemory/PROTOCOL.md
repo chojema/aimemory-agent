@@ -12,13 +12,13 @@ This protocol applies to every AI coding agent working in this project.
 
 ```text
 AIMemory/
-├─ PROTOCOL.md
-├─ INDEX.md
-├─ PROJECT_OVERVIEW.md
-├─ work.log
-├─ archive/
-├─ cold/
-└─ handoffs/
+├── PROTOCOL.md
+├── INDEX.md
+├── PROJECT_OVERVIEW.md
+├── work.log
+├── archive/
+├── cold/
+└── handoffs/
 ```
 
 ### File roles
@@ -46,6 +46,7 @@ This project may contain:
 | `AGENTS.md` | Codex and AGENTS-compatible tools |
 | `CLAUDE.md` | Claude Code |
 | `GEMINI.md` | Gemini CLI |
+| `opencode.md` | OpenCode |
 
 These files should stay short. They should point to this protocol rather than duplicating it.
 
@@ -144,9 +145,9 @@ Prefer sequential handoff:
 
 ```text
 Agent A completes work
-→ logs result
-→ creates handoff
-→ Agent B reads memory and continues
+-> logs result
+-> creates handoff
+-> Agent B reads memory and continues
 ```
 
 If multiple agents work at the same time, separate responsibilities clearly.
@@ -157,6 +158,7 @@ Example:
 Codex: game logic
 Claude: UI structure
 Gemini: UX text and explanation
+OpenCode: refactoring and code quality
 ```
 
 When parallel work ends, one agent should integrate the changes and resolve conflicts.
@@ -320,8 +322,6 @@ AIMemory/refactor-plan.<model-id>.md
 AIMemory/review-auth.<model-id>.md
 AIMemory/handoffs/handoff_ui-review.<model-id>.md
 ```
-
----
 
 ---
 
