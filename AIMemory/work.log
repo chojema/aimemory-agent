@@ -1,0 +1,26 @@
+# AIMemory work.log
+#
+# Append-only event log. Newest events go at the bottom.
+#
+# Event header:
+# ### YYYY-MM-DD HH:MM | <model-id> | <EVENT>
+#
+# Core events:
+# PROJECT_BOOTSTRAPPED, RE_ENGAGED, PROMPT, WORK_START, WORK_END,
+# FILES_CREATED, FILES_MODIFIED, FILES_MOVED, FILES_DELETED,
+# DECISION, NOTE, HANDOFF, HANDOFF_RECEIVED, HANDOFF_CLOSED,
+# REVIEW_RESPONSE, CHECKPOINT, CONTEXT_PRESSURE, HANDOFF_RECOMMENDED,
+# BLOCKER, CORRECTION
+#
+# Read the recent tail before every new task.
+# Do not edit old entries in place. Append corrections as new events.
+# See AIMemory/PROTOCOL.md for the full protocol.
+# ============================================================
+
+### 2026-05-30 00:00 | claude-sonnet-4-6 | PROJECT_BOOTSTRAPPED
+Vendor: Anthropic
+Harness: Claude Code
+Capabilities: filesystem-read, filesystem-write, shell-exec, subagent-spawn, image-input, web-fetch, web-search
+Strengths: Long-context reasoning, code generation, multi-file refactoring, instruction following
+Context-window: 200000
+Notes: AIMemory initialized from aimemory-agent-setup.md. Root agent instruction files (AGENTS.md, CLAUDE.md, GEMINI.md, opencode.md) created to point to AIMemory/PROTOCOL.md.
