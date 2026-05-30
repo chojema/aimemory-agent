@@ -1,6 +1,6 @@
 # AIMemory Agent Template
 
-`AIMemory Agent Template`은 Codex, Claude Code, Antigravity CLI, OpenCode 같은 여러 코딩 에이전트가 같은 프로젝트 폴더에서 작업 맥락을 공유하고, 작업을 이어받을 수 있도록 돕는 파일 기반 협업 메모리 템플릿입니다.
+`AIMemory Agent Template`은 Codex, Claude Code, Antigravity CLI(구 Gemini CLI), OpenCode 같은 여러 코딩 에이전트가 같은 프로젝트 폴더에서 작업 맥락을 공유하고, 작업을 이어받을 수 있도록 돕는 파일 기반 협업 메모리 템플릿입니다.
 
 이 템플릿은 별도의 서버, 데이터베이스, 플러그인 없이 프로젝트 폴더 안의 Markdown 파일만으로 작동합니다.
 
@@ -11,7 +11,7 @@
 - 이전 에이전트가 무엇을 했는지 새 에이전트가 모름
 - 같은 프로젝트를 다시 분석하느라 컨텍스트를 많이 사용함
 - 토큰 한도에 도달하면 작업 상태가 끊김
-- Codex, Claude, Gemini, OpenCode 사이에서 수동으로 설명을 복사해 붙여넣어야 함
+- Codex, Claude, Antigravity(Gemini), OpenCode 사이에서 수동으로 설명을 복사해 붙여넣어야 함
 - 작업 중간 결정, 변경 파일, 남은 작업이 흩어짐
 
 `AIMemory`는 이 문제를 줄이기 위해 프로젝트 안에 공통 작업 기억을 둡니다.
@@ -58,7 +58,7 @@ aimemory-agent-template/
 | `aimemory-agent-setup.md` | 기존 프로젝트에 AIMemory 구조를 안전하게 병합 설치하기 위한 설치 프롬프트 |
 | `AGENTS.md` | Codex와 AGENTS 호환 에이전트가 읽는 프로젝트 지침 파일 |
 | `CLAUDE.md` | Claude Code가 읽는 프로젝트 지침 파일 |
-| `GEMINI.md` | Antigravity CLI가 읽는 프로젝트 지침 파일 |
+| `GEMINI.md` | Antigravity CLI가 읽는 프로젝트 지침 파일. Gemini CLI와 동일 |
 | `opencode.md` | OpenCode가 읽는 프로젝트 지침 파일 |
 | `AIMemory/PROTOCOL.md` | 모든 에이전트가 따를 공통 작업 규칙 |
 | `AIMemory/PROJECT_OVERVIEW.md` | 새 에이전트가 프로젝트를 빠르게 이해하기 위한 요약 |
@@ -181,8 +181,8 @@ AIMemory를 적용한 프로젝트에서는 다음 흐름으로 작업합니다.
 3. Codex가 Claude용 handoff 파일 생성
 4. Claude가 AIMemory와 handoff 파일을 읽고 보완
 5. Claude가 work.log에 결과 기록
-6. Gemini가 UX 문구나 설명을 검토
-7. Gemini가 work.log와 필요한 handoff를 기록
+6. Antigravity가 UX 문구나 설명을 검토
+7. Antigravity가 work.log와 필요한 handoff를 기록
 ```
 
 사용자는 매번 이전 작업 내용을 길게 설명할 필요가 없습니다.
