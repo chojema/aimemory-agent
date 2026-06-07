@@ -30,14 +30,14 @@ The project memory must support:
 9. query-mode discipline: skip the full session start for status queries, simple file checks, counts, and informational questions; read only the files directly needed to answer
 10. status-first reporting: when the user asks about status, state, or opinions, report the facts and stop; do not pre-empt or begin the next action without an explicit instruction
 
-The key improvement in this setup is that the bootstrap process must not only create `AIMemory/`. It must also create or update the root-level instruction files that common agent harnesses automatically read:
+The key improvement in this setup is that the bootstrap process must not only create `.AIMemory/`. It must also create or update the root-level instruction files that common agent harnesses automatically read:
 
 - `AGENTS.md` for Codex and other AGENTS-compatible tools
 - `CLAUDE.md` for Claude Code
 - `GEMINI.md` for Antigravity CLI
 - `opencode.md` for OpenCode
 
-These root files must stay short. They should point agents to `AIMemory/PROTOCOL.md` rather than duplicating the full protocol.
+These root files must stay short. They should point agents to `.AIMemory/PROTOCOL.md` rather than duplicating the full protocol.
 
 ---
 
@@ -46,7 +46,7 @@ These root files must stay short. They should point agents to `AIMemory/PROTOCOL
 Create the following structure at the project root if it does not already exist:
 
 ```text
-AIMemory/
+.AIMemory/
 ├─ PROTOCOL.md
 ├─ INDEX.md
 ├─ PROJECT_OVERVIEW.md
@@ -56,7 +56,7 @@ AIMemory/
 └─ handoffs/
 ```
 
-If these files already exist, do not overwrite them. Read them, preserve them, and append a `RE_ENGAGED` event to `AIMemory/work.log`.
+If these files already exist, do not overwrite them. Read them, preserve them, and append a `RE_ENGAGED` event to `.AIMemory/work.log`.
 
 ---
 
@@ -81,7 +81,7 @@ If the exact model name is uncertain, do not guess. Use:
 <vendor>-unknown-<YYYY-MM>
 ```
 
-and note the uncertainty in `work.log`.
+and note the uncertainty in `.AIMemory/work.log`.
 
 ---
 
@@ -107,39 +107,39 @@ Get-Location
 Get-ChildItem
 ```
 
-Do not install `AIMemory/` in the user's home folder unless the user explicitly says the home folder is the project root.
+Do not install `.AIMemory/` in the user's home folder unless the user explicitly says the home folder is the project root.
 
 ---
 
-### Task 2. Create AIMemory structure
+### Task 2. Create .AIMemory structure
 
 Create the directory structure if missing.
 
 POSIX-compatible shell:
 
 ```bash
-mkdir -p AIMemory/archive AIMemory/cold AIMemory/handoffs
+mkdir -p .AIMemory/archive .AIMemory/cold .AIMemory/handoffs
 ```
 
 PowerShell:
 
 ```powershell
-New-Item -ItemType Directory -Force -Path AIMemory, AIMemory/archive, AIMemory/cold, AIMemory/handoffs
+New-Item -ItemType Directory -Force -Path .AIMemory, .AIMemory/archive, .AIMemory/cold, .AIMemory/handoffs
 ```
 
 ---
 
-### Task 3. Create `AIMemory/PROTOCOL.md`
+### Task 3. Create `.AIMemory/PROTOCOL.md`
 
-If `AIMemory/PROTOCOL.md` does not exist, create it with the content in the section "Protocol file content" below.
+If `.AIMemory/PROTOCOL.md` does not exist, create it with the content in the section "Protocol file content" below.
 
 If it already exists, do not overwrite it.
 
 ---
 
-### Task 4. Create `AIMemory/INDEX.md`
+### Task 4. Create `.AIMemory/INDEX.md`
 
-If `AIMemory/INDEX.md` does not exist, create it with this content:
+If `.AIMemory/INDEX.md` does not exist, create it with this content:
 
 ```markdown
 # AIMemory Index
@@ -168,9 +168,9 @@ If it already exists, preserve it.
 
 ---
 
-### Task 5. Create `AIMemory/PROJECT_OVERVIEW.md`
+### Task 5. Create `.AIMemory/PROJECT_OVERVIEW.md`
 
-If `AIMemory/PROJECT_OVERVIEW.md` does not exist, create it with this content:
+If `.AIMemory/PROJECT_OVERVIEW.md` does not exist, create it with this content:
 
 ```markdown
 # Project Overview
@@ -187,7 +187,7 @@ Unknown.
 
 ## Current state
 
-AIMemory has been initialized. Project details still need to be summarized.
+.AIMemory has been initialized. Project details still need to be summarized.
 
 ## Locked-in decisions
 
@@ -203,9 +203,9 @@ None recorded yet.
 
 ## Important constraints
 
-- Read `AIMemory/PROTOCOL.md` before working.
-- Read recent entries in `AIMemory/work.log` before changing files.
-- Record meaningful work in `AIMemory/work.log`.
+- Read `.AIMemory/PROTOCOL.md` before working.
+- Read recent entries in `.AIMemory/work.log` before changing files.
+- Record meaningful work in `.AIMemory/work.log`.
 - Create checkpoints during long tasks so another agent can continue safely.
 ```
 
@@ -213,9 +213,9 @@ If the file already exists, preserve it.
 
 ---
 
-### Task 6. Create `AIMemory/work.log`
+### Task 6. Create `.AIMemory/work.log`
 
-If `AIMemory/work.log` does not exist, create it with this content:
+If `.AIMemory/work.log` does not exist, create it with this content:
 
 ```text
 # AIMemory work.log
@@ -234,7 +234,7 @@ If `AIMemory/work.log` does not exist, create it with this content:
 #
 # Read the recent tail before every new task.
 # Do not edit old entries in place. Append corrections as new events.
-# See AIMemory/PROTOCOL.md for the full protocol.
+# See .AIMemory/PROTOCOL.md for the full protocol.
 # ============================================================
 ```
 
@@ -244,7 +244,7 @@ If it already exists, preserve it.
 
 ### Task 7. Append bootstrap or re-engagement event
 
-Append exactly one event to `AIMemory/work.log`.
+Append exactly one event to `.AIMemory/work.log`.
 
 If this is the first installation, append `PROJECT_BOOTSTRAPPED`.
 
@@ -261,7 +261,7 @@ Harness: <harness>
 Capabilities: <capabilities>
 Strengths: <strengths>
 Context-window: <context-window>
-Notes: AIMemory initialized. Root agent instruction files will point to AIMemory/PROTOCOL.md.
+Notes: .AIMemory initialized. Root agent instruction files will point to .AIMemory/PROTOCOL.md.
 ```
 
 or:
@@ -273,7 +273,7 @@ Harness: <harness>
 Capabilities: <capabilities>
 Strengths: <strengths>
 Context-window: <context-window>
-Notes: Existing AIMemory found. Preserved existing files and re-engaged with the protocol.
+Notes: Existing .AIMemory found. Preserved existing files and re-engaged with the protocol.
 ```
 
 Use a single append operation. Do not open the log, edit old text, and save it.
@@ -291,7 +291,7 @@ GEMINI.md
 opencode.md
 ```
 
-These files must be short pointers to `AIMemory/PROTOCOL.md`.
+These files must be short pointers to `.AIMemory/PROTOCOL.md`.
 
 If a file does not exist, create it.
 
@@ -313,7 +313,7 @@ If the block already exists, update only the text inside the block. Do not rewri
 <!-- AIMEMORY-INSTRUCTIONS:START -->
 # AIMemory Instructions
 
-This repository uses `AIMemory/` as shared project memory for coding agents.
+This repository uses `.AIMemory/` as shared project memory for coding agents.
 
 ## Classify the request before reading AIMemory
 
@@ -332,28 +332,28 @@ This repository uses `AIMemory/` as shared project memory for coding agents.
 
 ## Session start checklist (task mode only)
 
-1. Read `AIMemory/PROTOCOL.md`.
-2. Read `AIMemory/PROJECT_OVERVIEW.md`.
-3. Read the recent tail of `AIMemory/work.log`.
-4. Check `AIMemory/INDEX.md` and `AIMemory/handoffs/` if the user asks to continue, review, or receive another agent's work.
+1. Read `.AIMemory/PROTOCOL.md`.
+2. Read `.AIMemory/PROJECT_OVERVIEW.md`.
+3. Read the recent tail of `.AIMemory/work.log`.
+4. Check `.AIMemory/INDEX.md` and `.AIMemory/handoffs/` if the user asks to continue, review, or receive another agent's work.
 
 ## During work
 
 - Preserve recorded project decisions unless the user explicitly changes them.
-- Keep generated markdown under `AIMemory/` unless the file is a harness-required instruction file.
+- Keep generated markdown under `.AIMemory/` unless the file is a harness-required instruction file.
 - Avoid parallel edits to the same source files unless roles are clearly separated.
-- During long tasks, append `CHECKPOINT` events to `AIMemory/work.log` at meaningful milestones.
+- During long tasks, append `CHECKPOINT` events to `.AIMemory/work.log` at meaningful milestones.
 - If context pressure becomes high, append `CONTEXT_PRESSURE`, prepare a handoff file, and recommend continuing in another agent or a fresh session.
 
 ## After work
 
-1. Append a concise event to `AIMemory/work.log`.
+1. Append a concise event to `.AIMemory/work.log`.
 2. Record changed files, decisions, unresolved issues, and next steps.
-3. Update `AIMemory/INDEX.md` when new durable topics or handoffs are added.
-4. Update `AIMemory/PROJECT_OVERVIEW.md` when project direction, stack, or locked-in decisions change.
-5. Create a handoff file under `AIMemory/handoffs/` when another agent should continue the task.
+3. Update `.AIMemory/INDEX.md` when new durable topics or handoffs are added.
+4. Update `.AIMemory/PROJECT_OVERVIEW.md` when project direction, stack, or locked-in decisions change.
+5. Create a handoff file under `.AIMemory/handoffs/` when another agent should continue the task.
 
-Do not ignore `AIMemory/` unless the user explicitly says this is a one-off task.
+Do not ignore `.AIMemory/` unless the user explicitly says this is a one-off task.
 <!-- AIMEMORY-INSTRUCTIONS:END -->
 ```
 
@@ -363,7 +363,7 @@ Do not ignore `AIMemory/` unless the user explicitly says this is a one-off task
 <!-- AIMEMORY-INSTRUCTIONS:START -->
 # AIMemory Instructions for Claude Code
 
-This project uses `AIMemory/` as shared working memory across multiple AI coding agents.
+This project uses `.AIMemory/` as shared working memory across multiple AI coding agents.
 
 ## Classify the request before reading AIMemory
 
@@ -382,27 +382,27 @@ This project uses `AIMemory/` as shared working memory across multiple AI coding
 
 ## Session start checklist (task mode only)
 
-1. Read `AIMemory/PROTOCOL.md`.
-2. Read `AIMemory/PROJECT_OVERVIEW.md`.
-3. Read the recent tail of `AIMemory/work.log`.
-4. Check `AIMemory/handoffs/` for open handoffs when the user asks to continue another agent's work.
+1. Read `.AIMemory/PROTOCOL.md`.
+2. Read `.AIMemory/PROJECT_OVERVIEW.md`.
+3. Read the recent tail of `.AIMemory/work.log`.
+4. Check `.AIMemory/handoffs/` for open handoffs when the user asks to continue another agent's work.
 
 ## During work
 
-- Follow `AIMemory/PROTOCOL.md`.
+- Follow `.AIMemory/PROTOCOL.md`.
 - Do not overwrite another agent's active work.
-- Keep durable notes, plans, reviews, and handoffs under `AIMemory/`.
+- Keep durable notes, plans, reviews, and handoffs under `.AIMemory/`.
 - Use `CLAUDE.md` only for Claude Code project instructions.
-- During long tasks, write `CHECKPOINT` events to `AIMemory/work.log` at meaningful milestones.
+- During long tasks, write `CHECKPOINT` events to `.AIMemory/work.log` at meaningful milestones.
 - If context pressure becomes high, write `CONTEXT_PRESSURE`, create or recommend a handoff, and tell the user that another agent or fresh session can continue safely.
 
 ## After work
 
-1. Append a structured summary to `AIMemory/work.log`.
+1. Append a structured summary to `.AIMemory/work.log`.
 2. Include changed files, decisions, open risks, and next steps.
-3. Update `AIMemory/INDEX.md` for new topics.
-4. Update `AIMemory/PROJECT_OVERVIEW.md` for durable project changes.
-5. Create a handoff file in `AIMemory/handoffs/` if another agent should continue.
+3. Update `.AIMemory/INDEX.md` for new topics.
+4. Update `.AIMemory/PROJECT_OVERVIEW.md` for durable project changes.
+5. Create a handoff file in `.AIMemory/handoffs/` if another agent should continue.
 <!-- AIMEMORY-INSTRUCTIONS:END -->
 ```
 
@@ -412,7 +412,7 @@ This project uses `AIMemory/` as shared working memory across multiple AI coding
 <!-- AIMEMORY-INSTRUCTIONS:START -->
 # AIMemory Instructions for Antigravity CLI
 
-This project uses `AIMemory/` as shared working memory for Codex, Claude Code, Antigravity CLI, OpenCode, and other coding agents.
+This project uses `.AIMemory/` as shared working memory for Codex, Claude Code, Antigravity CLI, OpenCode, and other coding agents.
 
 ## Classify the request before reading AIMemory
 
@@ -431,26 +431,26 @@ This project uses `AIMemory/` as shared working memory for Codex, Claude Code, A
 
 ## Session start checklist (task mode only)
 
-1. Read `AIMemory/PROTOCOL.md`.
-2. Read `AIMemory/PROJECT_OVERVIEW.md`.
-3. Read the recent entries in `AIMemory/work.log`.
-4. If asked to receive or review another agent's work, inspect `AIMemory/handoffs/`.
+1. Read `.AIMemory/PROTOCOL.md`.
+2. Read `.AIMemory/PROJECT_OVERVIEW.md`.
+3. Read the recent entries in `.AIMemory/work.log`.
+4. If asked to receive or review another agent's work, inspect `.AIMemory/handoffs/`.
 
 ## During work
 
-- Follow the protocol in `AIMemory/PROTOCOL.md`.
+- Follow the protocol in `.AIMemory/PROTOCOL.md`.
 - Keep project memory concise and durable.
 - Do not duplicate the full protocol in this file.
-- Put new markdown artifacts under `AIMemory/` unless they are required root instruction files.
-- During long tasks, write `CHECKPOINT` events to `AIMemory/work.log` at meaningful milestones.
+- Put new markdown artifacts under `.AIMemory/` unless they are required root instruction files.
+- During long tasks, write `CHECKPOINT` events to `.AIMemory/work.log` at meaningful milestones.
 - If context pressure becomes high, write `CONTEXT_PRESSURE`, prepare a handoff file, and recommend continuing in another agent or a fresh session.
 
 ## After work
 
-1. Append a concise event to `AIMemory/work.log`.
+1. Append a concise event to `.AIMemory/work.log`.
 2. Record changed files, decisions, unresolved issues, and recommended next actions.
-3. Update `AIMemory/INDEX.md` and `AIMemory/PROJECT_OVERVIEW.md` when needed.
-4. Write handoff files to `AIMemory/handoffs/`.
+3. Update `.AIMemory/INDEX.md` and `.AIMemory/PROJECT_OVERVIEW.md` when needed.
+4. Write handoff files to `.AIMemory/handoffs/`.
 <!-- AIMEMORY-INSTRUCTIONS:END -->
 ```
 
@@ -460,7 +460,7 @@ This project uses `AIMemory/` as shared working memory for Codex, Claude Code, A
 <!-- AIMEMORY-INSTRUCTIONS:START -->
 # AIMemory Instructions for OpenCode
 
-This project uses `AIMemory/` as shared working memory for Codex, Claude Code, Antigravity CLI, OpenCode, and other coding agents.
+This project uses `.AIMemory/` as shared working memory for Codex, Claude Code, Antigravity CLI, OpenCode, and other coding agents.
 
 ## Classify the request before reading AIMemory
 
@@ -479,26 +479,26 @@ This project uses `AIMemory/` as shared working memory for Codex, Claude Code, A
 
 ## Session start checklist (task mode only)
 
-1. Read `AIMemory/PROTOCOL.md`.
-2. Read `AIMemory/PROJECT_OVERVIEW.md`.
-3. Read the recent entries in `AIMemory/work.log`.
-4. If asked to receive or review another agent's work, inspect `AIMemory/handoffs/`.
+1. Read `.AIMemory/PROTOCOL.md`.
+2. Read `.AIMemory/PROJECT_OVERVIEW.md`.
+3. Read the recent entries in `.AIMemory/work.log`.
+4. If asked to receive or review another agent's work, inspect `.AIMemory/handoffs/`.
 
 ## During work
 
-- Follow the protocol in `AIMemory/PROTOCOL.md`.
+- Follow the protocol in `.AIMemory/PROTOCOL.md`.
 - Keep project memory concise and durable.
 - Do not duplicate the full protocol in this file.
-- Put new markdown artifacts under `AIMemory/` unless they are required root instruction files.
-- During long tasks, write `CHECKPOINT` events to `AIMemory/work.log` at meaningful milestones.
+- Put new markdown artifacts under `.AIMemory/` unless they are required root instruction files.
+- During long tasks, write `CHECKPOINT` events to `.AIMemory/work.log` at meaningful milestones.
 - If context pressure becomes high, write `CONTEXT_PRESSURE`, prepare a handoff file, and recommend continuing in another agent or a fresh session.
 
 ## After work
 
-1. Append a concise event to `AIMemory/work.log`.
+1. Append a concise event to `.AIMemory/work.log`.
 2. Record changed files, decisions, unresolved issues, and recommended next actions.
-3. Update `AIMemory/INDEX.md` and `AIMemory/PROJECT_OVERVIEW.md` when needed.
-4. Write handoff files to `AIMemory/handoffs/`.
+3. Update `.AIMemory/INDEX.md` and `.AIMemory/PROJECT_OVERVIEW.md` when needed.
+4. Write handoff files to `.AIMemory/handoffs/`.
 <!-- AIMEMORY-INSTRUCTIONS:END -->
 ```
 
@@ -509,7 +509,7 @@ This project uses `AIMemory/` as shared working memory for Codex, Claude Code, A
 After completing the setup, reply with:
 
 ```text
-AIMemory setup complete.
+.AIMemory setup complete.
 
 Model-id: <model-id>
 Vendor: <vendor>
@@ -517,19 +517,19 @@ Harness: <harness>
 Capabilities: <capabilities>
 
 Created or verified:
-- <absolute path>/AIMemory/PROTOCOL.md
-- <absolute path>/AIMemory/INDEX.md
-- <absolute path>/AIMemory/PROJECT_OVERVIEW.md
-- <absolute path>/AIMemory/work.log
-- <absolute path>/AIMemory/archive/
-- <absolute path>/AIMemory/cold/
-- <absolute path>/AIMemory/handoffs/
+- <absolute path>/.AIMemory/PROTOCOL.md
+- <absolute path>/.AIMemory/INDEX.md
+- <absolute path>/.AIMemory/PROJECT_OVERVIEW.md
+- <absolute path>/.AIMemory/work.log
+- <absolute path>/.AIMemory/archive/
+- <absolute path>/.AIMemory/cold/
+- <absolute path>/.AIMemory/handoffs/
 - <absolute path>/AGENTS.md
 - <absolute path>/CLAUDE.md
 - <absolute path>/GEMINI.md
 - <absolute path>/opencode.md
 
-From now on, I will read AIMemory before work, update it after work, and create checkpoints during long tasks.
+From now on, I will read .AIMemory before work, update it after work, and create checkpoints during long tasks.
 ```
 
 Do not claim files were created if they already existed. Say "created or verified" unless you are certain.
@@ -538,14 +538,14 @@ Do not claim files were created if they already existed. Say "created or verifie
 
 # Protocol file content
 
-Write the following to `AIMemory/PROTOCOL.md` if the file does not already exist.
+Write the following to `.AIMemory/PROTOCOL.md` if the file does not already exist.
 
 ```markdown
 # AIMemory Protocol
 
 This protocol applies to every AI coding agent working in this project.
 
-`AIMemory/` is the shared project memory. It exists so that multiple agents can work in the same folder, hand work off to one another, and preserve important context across sessions.
+`.AIMemory/` is the shared project memory. It exists so that multiple agents can work in the same folder, hand work off to one another, and preserve important context across sessions.
 
 ---
 
@@ -554,7 +554,7 @@ This protocol applies to every AI coding agent working in this project.
 ### Required files
 
 ```text
-AIMemory/
+.AIMemory/
 ├─ PROTOCOL.md
 ├─ INDEX.md
 ├─ PROJECT_OVERVIEW.md
@@ -593,7 +593,7 @@ This project may contain:
 
 These files should stay short. They should point to this protocol rather than duplicating it.
 
-Do not place long project notes in root instruction files. Put durable notes under `AIMemory/`.
+Do not place long project notes in root instruction files. Put durable notes under `.AIMemory/`.
 
 ---
 
@@ -640,11 +640,11 @@ A request is in task mode when it asks the agent to create, modify, delete, move
 
 Before changing any files, the active agent must:
 
-1. Read `AIMemory/PROTOCOL.md`.
-2. Read `AIMemory/PROJECT_OVERVIEW.md`.
-3. Read the recent tail of `AIMemory/work.log`.
-4. Check for an open or relevant handoff in `AIMemory/handoffs/` if the task involves continuation, review, or receiving another agent's work.
-5. Check `AIMemory/INDEX.md` when older context may matter.
+1. Read `.AIMemory/PROTOCOL.md`.
+2. Read `.AIMemory/PROJECT_OVERVIEW.md`.
+3. Read the recent tail of `.AIMemory/work.log`.
+4. Check for an open or relevant handoff in `.AIMemory/handoffs/` if the task involves continuation, review, or receiving another agent's work.
+5. Check `.AIMemory/INDEX.md` when older context may matter.
 
 If the user explicitly says not to log the turn, do not log it.
 
@@ -652,7 +652,7 @@ If the user explicitly says not to log the turn, do not log it.
 
 ## 4. work.log rules
 
-`AIMemory/work.log` is an append-only event log.
+`.AIMemory/work.log` is an append-only event log.
 
 Never edit old entries in place.
 
@@ -669,7 +669,7 @@ Recommended event types:
 | Event | Use |
 |---|---|
 | `PROJECT_BOOTSTRAPPED` | First installation |
-| `RE_ENGAGED` | Existing AIMemory found and reused |
+| `RE_ENGAGED` | Existing .AIMemory found and reused |
 | `PROMPT` | User request worth preserving |
 | `WORK_START` | Start of a meaningful task |
 | `WORK_END` | End of a meaningful task |
@@ -689,7 +689,7 @@ Recommended event types:
 | `BLOCKER` | Blocking issue |
 | `CORRECTION` | Correction to an earlier event |
 
-Keep log entries concise. If the content is long, create a separate markdown file under `AIMemory/` and link to it from `work.log`.
+Keep log entries concise. If the content is long, create a separate markdown file under `.AIMemory/` and link to it from `work.log`.
 
 ---
 
@@ -700,7 +700,7 @@ When appending to `work.log`, use one append operation per event.
 POSIX shell example:
 
 ```bash
-cat >> AIMemory/work.log <<'EOF'
+cat >> .AIMemory/work.log <<'EOF'
 ### YYYY-MM-DD HH:MM | <model-id> | WORK_END
 Status: complete
 Summary: <summary>
@@ -710,7 +710,7 @@ EOF
 If `flock` is available and multiple agents may write concurrently, use it.
 
 ```bash
-flock AIMemory/work.log -c "cat >> AIMemory/work.log <<'EOF'
+flock .AIMemory/work.log -c "cat >> .AIMemory/work.log <<'EOF'
 ### YYYY-MM-DD HH:MM | <model-id> | WORK_END
 Status: complete
 Summary: <summary>
@@ -754,7 +754,7 @@ Use handoff files when one agent wants another agent to continue, review, or ans
 Create handoff files under:
 
 ```text
-AIMemory/handoffs/
+.AIMemory/handoffs/
 ```
 
 Filename format:
@@ -766,7 +766,7 @@ handoff_<topic>.<from-model-id>.md
 Example:
 
 ```text
-AIMemory/handoffs/handoff_auth-review.gpt-5-codex.md
+.AIMemory/handoffs/handoff_auth-review.gpt-5-codex.md
 ```
 
 Handoff file template:
@@ -856,7 +856,7 @@ Do not delete old events. Move them.
 If a monthly summary is created, place it under:
 
 ```text
-AIMemory/cold/digest-YYYY-MM.md
+.AIMemory/cold/digest-YYYY-MM.md
 ```
 
 After creating or updating a cold digest, update `PROJECT_OVERVIEW.md` if project-level facts changed.
@@ -865,7 +865,7 @@ After creating or updating a cold digest, update `PROJECT_OVERVIEW.md` if projec
 
 ## 10. Project overview maintenance
 
-Update `AIMemory/PROJECT_OVERVIEW.md` when any of the following changes:
+Update `.AIMemory/PROJECT_OVERVIEW.md` when any of the following changes:
 
 - project purpose
 - technology stack
@@ -881,7 +881,7 @@ Keep it short enough for a new agent to read quickly.
 
 ## 11. Index maintenance
 
-Update `AIMemory/INDEX.md` when creating:
+Update `.AIMemory/INDEX.md` when creating:
 
 - new archive files
 - new cold digests
@@ -895,14 +895,14 @@ The index should help future agents find relevant memory without reading everyth
 
 ## 12. Markdown artifact rule
 
-Unless a file is a harness-required root instruction file, new AI-authored markdown should live under `AIMemory/`.
+Unless a file is a harness-required root instruction file, new AI-authored markdown should live under `.AIMemory/`.
 
 Examples:
 
 ```text
-AIMemory/refactor-plan.<model-id>.md
-AIMemory/review-auth.<model-id>.md
-AIMemory/handoffs/handoff_ui-review.<model-id>.md
+.AIMemory/refactor-plan.<model-id>.md
+.AIMemory/review-auth.<model-id>.md
+.AIMemory/handoffs/handoff_ui-review.<model-id>.md
 ```
 
 ---
@@ -913,7 +913,7 @@ Agents must actively protect project continuity during long tasks.
 
 ### 13.1 Automatic checkpoint triggers
 
-Create a `CHECKPOINT` event in `AIMemory/work.log` when any of the following is true:
+Create a `CHECKPOINT` event in `.AIMemory/work.log` when any of the following is true:
 
 - The task has modified 3 or more files.
 - The task has created, moved, or deleted project files.
@@ -944,7 +944,7 @@ If the agent is unsure whether to continue, summarize, or hand off, ask the user
 Use this style:
 
 ```text
-The task is getting large. I can continue, but it would be safer to write a checkpoint to AIMemory first.
+The task is getting large. I can continue, but it would be safer to write a checkpoint to .AIMemory first.
 ```
 
 Do not ask repeatedly. If a checkpoint is clearly useful, write it without asking.
@@ -997,7 +997,7 @@ Recommended next step: <specific next action>
 User-facing wording should be short and practical:
 
 ```text
-I have recorded the current state in AIMemory. This is a good point to continue in another agent or a fresh session.
+I have recorded the current state in .AIMemory. This is a good point to continue in another agent or a fresh session.
 ```
 
 ### 13.5 Handoff preparation
@@ -1005,7 +1005,7 @@ I have recorded the current state in AIMemory. This is a good point to continue 
 When preparing for another agent, create a file under:
 
 ```text
-AIMemory/handoffs/
+.AIMemory/handoffs/
 ```
 
 Use this event in `work.log`:
@@ -1014,7 +1014,7 @@ Use this event in `work.log`:
 ### YYYY-MM-DD HH:MM | <model-id> | HANDOFF
 Summary: <what was completed>
 Target: <target agent if known>
-Handoff file: AIMemory/handoffs/handoff_<topic>.<model-id>.md
+Handoff file: .AIMemory/handoffs/handoff_<topic>.<model-id>.md
 Reason: <context pressure | specialist review | user request | phase transition>
 ```
 
@@ -1051,7 +1051,7 @@ Do not record:
 - session cookies
 - personal information not needed for project continuity
 
-If the project is public, recommend adding `AIMemory/` to `.gitignore` unless the user explicitly wants to version it.
+If the project is public, recommend adding `.AIMemory/` to `.gitignore` unless the user explicitly wants to version it.
 
 ---
 
